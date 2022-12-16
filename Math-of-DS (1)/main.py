@@ -377,6 +377,7 @@ if __name__ == "__main__":
   
     #print('average abs. error (test): ' + str(np.mean(np.abs(np.array(y_test_pred) - np.array(y_test)))))
 
+    # discard r^2 values less than 0
     if r2_score(y_test, y_test_pred) > 0:
       coeffs_test.append(r2_score(y_test, y_test_pred))
     else:
@@ -403,13 +404,3 @@ if __name__ == "__main__":
   m = np.mean(t, axis=0)
   print(m)
   print(sum(take_mean_i)/len(take_mean_i))
-
-  
-  cols = list(X.columns)
-
-  # X_TTT['ofp'] = sum([X_TTT[cols[i]] * m[i] for i in range(len(cols))]) + sum(take_mean_i)/len(take_mean_i)
-  # #X['ofp'] = sum([X[cols[i]] * m[i] for i in range(len(cols))])
-
-  # lb()
-  # lb()
-  # print(r2_score(y_TTT, list(X_TTT['ofp'])))
